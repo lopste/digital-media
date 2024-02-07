@@ -3,6 +3,8 @@
     "name": "lopste"
   },
   "scripts": {
+    "build": "webpack",
+    "start": "serve",
     "dev": "webpack-dev-server --hot"
   },
   "devDependencies": {
@@ -24,6 +26,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "serve": "^14.2.1"
   }
 }
