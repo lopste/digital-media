@@ -8,12 +8,26 @@ body {
     color: white;
 }
 
-main#app-root {
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+div#app-root {
+    margin-top: 1.5rem;
+
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 3fr 0.6fr;
     grid-template-rows: 3.5rem 1fr;
-    grid-template-areas: "header" "body";
+    grid-template-areas: "nav body ." 
+                         "nav body .";
 
     width: 100%;
     height: 100%;
+
+    main {
+        grid-area: body;
+        padding: 1rem;
+    }
 }

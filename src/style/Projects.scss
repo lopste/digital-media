@@ -1,0 +1,40 @@
+div#project-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+div.project {
+    overflow: hidden;
+    background-color: #5f5f5f55;
+    border-radius: 0.5rem;
+
+    width: 20rem;
+    height: 16.3rem;
+    padding: 1rem;
+
+    h2 {    
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        margin-top: 0;
+    }
+
+    img {
+        width: 20rem;
+        max-height: 12rem;
+        object-fit: cover;
+        border-radius: 0.2rem;
+    }
+
+    a {
+        color: #008cff;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: color 0.2s;
+
+    }
+}

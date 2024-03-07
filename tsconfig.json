@@ -5,6 +5,15 @@
         "strict": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "jsx": "react"
+        "jsx": "react",
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"],
+            "@app/*": ["src/app/*"],
+            "@styles/*": ["src/style/*"],
+            "@assets/*": ["assets/*"],
+            "@img/*": ["assets/img/*"],
+        }
+
     }
 }

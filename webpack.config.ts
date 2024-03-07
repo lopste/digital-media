@@ -2,6 +2,7 @@ import path from "path";
 
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import "webpack-dev-server";
 
 const config: webpack.Configuration = {
@@ -31,10 +32,13 @@ const config: webpack.Configuration = {
             {
                 test: /\.(css|scss)$/,
                 use: [
-                    "style-loader",
+                    MiniCssExtractPlugin.loader,
                     "css-loader",
                     "sass-loader"
-                ]
+                ],
+                include: path.resolve(__dirname, "src"),
+                exclude: /node_modules/,
+                sideEffects: true
             },
             {
                 test: /\.(png|jpg|svg)$/,
@@ -49,7 +53,8 @@ const config: webpack.Configuration = {
         new HtmlWebpackPlugin({
             template: "./src/index.html",
             title: "Digital Portfolio",
-        })
+        }),
+        new MiniCssExtractPlugin()
     ],
     cache: false
 };

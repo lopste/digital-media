@@ -1,0 +1,244 @@
+div.project-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: #00000099;
+    backdrop-filter: brightness(60%) blur(0.5rem);
+
+    animation: fadeInBackground 0.3s ease-out;
+
+    z-index: 100;
+
+    div.content {
+        animation: fadeInContent 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        //background-color: #5f5f5f44;
+        border-radius: 0.5rem;
+
+        padding: 1rem;
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        a {
+            color: #008cff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        div.video {
+            height: 60vh;
+            aspect-ratio: 16 / 9;
+
+            padding: 1rem;
+
+            iframe {
+                width: 100%;
+                height: 100%;
+
+                border: none;
+            }
+        }
+
+        div.image-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 0.5rem;
+
+            div.image-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+                height: 60vh;
+                width: 75vw;
+            }
+
+            img {
+                max-width: 60vw;
+                max-height: 60vh;
+
+                margin: -2rem;
+    
+                border-radius: 0.5rem;
+                box-shadow: 0 0 1rem #000000aa;
+
+                transition: max-width 0.2s, max-height 0.2s, filter 0.2s, opacity 0.4s;
+
+                &[data-offset="0"] {
+                    z-index: 200;
+                    max-width: 60vw;
+                    max-height: 60vh;
+                }
+
+                &[data-offset="-1"],
+                &[data-offset="1"] {
+                    z-index: 190;
+                    max-width: 30vw;
+                    max-height: 30vh;
+
+                    opacity: 0.9;
+                    filter: brightness(60%);
+                }
+
+                &[data-offset="-2"],
+                &[data-offset="2"] {
+                    z-index: 180;
+                    max-width: 15vw;
+                    max-height: 15vh;
+
+                    opacity: 0.5;
+                    filter: brightness(40%);
+                }
+
+                &[data-offset="-3"],
+                &[data-offset="3"] {
+                    z-index: 170;
+                    max-width: 0vw;
+                    max-height: 0vh;
+    
+                    opacity: 0;
+                }
+            }
+
+            div.controls {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                
+                button.cursor {
+                    cursor: pointer;
+
+                    font-family: inherit;
+                    font-size: 1.2rem;
+                    line-height: 1rem;
+
+                    width: 2rem;
+                    aspect-ratio: 1 / 1;
+
+                    appearance: none;
+                    border: none;
+                    background: transparent;
+
+                    color: white;
+                }
+
+                div.current-image {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    gap: 0.5rem;
+
+                    span {
+                        display: block;
+                        width: 0.7rem;
+                        height: 0.7rem;
+
+                        border-radius: 0.2rem;
+
+                        background-color: #777777aa;
+                        cursor: pointer;
+
+                        transition: background-color 0.2s, height 0.2s;
+
+                        &[data-selected="true"] {
+                            background-color: #008cff;
+                            height: 1.2rem;
+
+                            animation: glow 1s infinite ease-out;
+                        }
+
+                        &[data-offset="-1"],
+                        &[data-offset="1"] {
+                            background-color: #999999aa;
+                            height: 0.9rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.closing {
+        animation: fadeOutBackground 0.2s ease-in;
+
+        div.content {
+            animation: fadeOutContent 0.2s ease-in;
+        }
+    }
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-1rem);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes fadeOutBackground {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutContent {
+    from {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9) translateY(-1rem);
+    }
+}
+
+@keyframes glow {
+    0% {
+        filter: brightness(160%);
+    }
+    100% {
+        filter: brightness(100%);
+    }
+}
