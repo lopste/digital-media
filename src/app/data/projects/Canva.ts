@@ -25,4 +25,13 @@ export const CanvaDay1: ProjectProps = {
     type: "image-gallery"
 };
 
+import menu from "@img/canva/menu.png";
 
+export const CanvaMenu: ProjectProps = {
+    name: "Menu Redesign",
+    thumb: { src: menu, alt: "Menu made in Canva" },
+    images: [
+        { src: menu, alt: "Redesign of Casa de Pollo's menu" }
+    ],
+    type: "image-gallery"
+};
