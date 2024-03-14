@@ -27,6 +27,7 @@ function useDelayUnmount(isMounted: boolean, delayTime: number) {
 // projects
 import { WordCloud } from "../data/projects/WordCloud";
 import { CanvaDay1, CanvaMenu } from "../data/projects/Canva";
+import { DayInTheLifeOf } from "../data/projects/DayInTheLifeOf";
 
 export default function Projects() {
     const [currentPopup, setCurrentPopup] = React.useState<ProjectPopupProps | null>(null);
@@ -53,6 +54,7 @@ export default function Projects() {
                 <Project {...WordCloud} />
                 <Project {...CanvaDay1} />
                 <Project {...CanvaMenu} />
+                <Project {...DayInTheLifeOf} />
             </ProjectPopupContext.Provider>
         </div> 
     </main>
